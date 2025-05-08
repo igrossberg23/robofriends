@@ -1,6 +1,9 @@
 import Card from './Card';
+import { useMemo } from 'react';
 
 export default function CardList({ users }) {
+	const seed = useMemo(() => Math.floor(Math.random() * 10000), []);
+
 	return (
 		<div
 			className='grid gap-4 w-full'
@@ -8,7 +11,7 @@ export default function CardList({ users }) {
 			{users.map((user) => (
 				<Card
 					key={user.id}
-					id={user.id}
+					id={user.id + seed}
 					name={user.name}
 					email={user.email}
 				/>
