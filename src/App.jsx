@@ -2,6 +2,7 @@ import { useEffect, useState, useMemo } from 'react';
 import SearchBar from './SearchBar';
 import CardList from './CardList';
 import './App.css';
+import Scroll from './Scroll';
 
 export default function App() {
 	const [search, setSearch] = useState('');
@@ -45,7 +46,9 @@ export default function App() {
 				/>
 				<br />
 				<br />
-				{users ? <CardList users={filteredUsers} /> : <Error error={error} />}
+				<Scroll>
+					{users ? <CardList users={filteredUsers} /> : <Error error={error} />}
+				</Scroll>
 			</section>
 		</div>
 	);
